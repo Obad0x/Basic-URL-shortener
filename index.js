@@ -15,6 +15,8 @@ app.set('view engine', 'ejs');
 app.use(expressLayout)
 app.set('layout', './layout/main');
 
+app.use('/', require('./server/Routes/main'))
+
 connectDB();
 
 
