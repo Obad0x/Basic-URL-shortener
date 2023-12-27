@@ -21,15 +21,29 @@ router.post('/shorten-url', async (req, res)=>{
             LongUrl: req.body.url
         })
             await Url.create(url);
-            res.send(url)
-            
-      } catch (error) {
+            res.redirect('/urls')
+      } 
+      
+      catch (error) {
         console.log(error)
         
       }
     
     
     
+})
+
+router.get('/urls', async(req, res)=>{
+  try {
+
+     const data = await Url.find();
+
+     res.render('urls', {data})
+    
+  } catch (error) {
+    console.log(error);
+    
+  }
 })
 
 
@@ -39,6 +53,7 @@ router.post('/shorten-url', async (req, res)=>{
  router.get('/:ShortUrl', async(req, res)=>{
 
       const id = req.params.ShortUrl;
+      console.log(id)
 
       const data = await Url.findOne({
         ShortUrl : id

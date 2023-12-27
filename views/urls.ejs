@@ -1,0 +1,23 @@
+<h2>URLs</h2>
+
+
+
+<table>
+    <thead>
+      <tr>
+        <th>Long URL</th>
+        <th>shortened</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% data.forEach(url => { %>
+        <tr>
+          <td><p><%= url.LongUrl %></p></td>
+          <td> <a href="<%= url.ShortUrl  %>"> <%= url.ShortUrl %></a></td>
+        </tr>
+      <% }) %>
+    </tbody>
+  </table>
+
+
+
